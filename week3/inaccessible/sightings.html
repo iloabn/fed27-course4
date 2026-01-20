@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Report</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">FLARMLURV FAN PAGE</div>
+      <div class="menu">
+        <div class="menu-item" onclick="location.href = 'index.html'">Home</div>
+        <div class="menu-item" onclick="location.href = 'facts.html'">
+          Facts
+        </div>
+        <div class="menu-item" onclick="location.href = 'sightings.html'">
+          Report Sighting
+        </div>
+        <div class="menu-item" onclick="location.href = 'gallery.html'">
+          Gallery
+        </div>
+      </div>
+    </div>
+
+    <div class="page-title-banner">
+      <div class="page-title">Report a Flarmlurv Sighting</div>
+    </div>
+
+    <div class="content">
+      <div class="section">
+        <div class="text">
+          Have you spotted Stockholm's most elusive creature? Fill out the form
+          below to submit your sighting report. Our team of experts will review
+          your submission and contact you if we need additional information.
+        </div>
+        <div class="required-note">* indicates required field</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Sighting Details</div>
+        <div class="form">
+          <div class="form-row">
+            <div class="form-group">
+              <div class="label">Your Name *</div>
+              <input type="text" class="input" placeholder="Full name" />
+            </div>
+            <div class="form-group">
+              <div class="label">Email *</div>
+              <input type="text" class="input" placeholder="your@email.com" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <div class="label">Phone</div>
+              <input type="text" class="input" placeholder="Phone number" />
+            </div>
+            <div class="form-group">
+              <div class="label">Date of Sighting *</div>
+              <input type="text" class="input" placeholder="DD/MM/YYYY" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <div class="label">Time of Sighting</div>
+              <input type="text" class="input" placeholder="HH:MM" />
+            </div>
+            <div class="form-group">
+              <div class="label">Duration</div>
+              <select class="input">
+                <option>Select duration</option>
+                <option>Less than 10 seconds</option>
+                <option>10-30 seconds</option>
+                <option>30 seconds - 1 minute</option>
+                <option>1-5 minutes</option>
+                <option>More than 5 minutes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <div class="label">Location *</div>
+            <input
+              type="text"
+              class="input"
+              placeholder="Street address or landmark"
+            />
+          </div>
+
+          <div class="form-group full-width">
+            <div class="label">District</div>
+            <div class="radio-group">
+              <div class="radio-item">
+                <input type="radio" name="district" /> Gamla Stan
+              </div>
+              <div class="radio-item">
+                <input type="radio" name="district" /> Djurgarden
+              </div>
+              <div class="radio-item">
+                <input type="radio" name="district" /> Sodermalm
+              </div>
+              <div class="radio-item">
+                <input type="radio" name="district" /> Ostermalm
+              </div>
+              <div class="radio-item">
+                <input type="radio" name="district" /> Norrmalm
+              </div>
+              <div class="radio-item">
+                <input type="radio" name="district" /> Kungsholmen
+              </div>
+              <div class="radio-item">
+                <input type="radio" name="district" /> Other
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <div class="label">Description of Sighting *</div>
+            <textarea
+              class="input textarea"
+              placeholder="Please describe what you saw in detail..."
+            ></textarea>
+          </div>
+
+          <div class="form-group full-width">
+            <div class="label">Behavior Observed</div>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" /> Walking/Running
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" /> Swimming
+              </div>
+              <div class="checkbox-item"><input type="checkbox" /> Eating</div>
+              <div class="checkbox-item">
+                <input type="checkbox" /> Humming/Vocalizing
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" /> Color changing
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" /> Interacting with other Flarmlurv
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <div class="label">Upload Evidence</div>
+            <div class="file-upload">
+              <div class="file-upload-text">
+                Drag files here or click to upload
+              </div>
+              <input type="file" class="file-input" />
+            </div>
+            <div class="help-text">
+              Accepted formats: JPG, PNG, MP4 (max 10MB)
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <div class="label">Confidence Level</div>
+            <div class="slider-container">
+              <div class="slider-labels">
+                <div>Not Sure</div>
+                <div>Somewhat Confident</div>
+                <div>Very Confident</div>
+              </div>
+              <input type="range" class="slider" min="1" max="5" />
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <div class="checkbox-item">
+              <input type="checkbox" /> I confirm this is a genuine sighting
+              report and not a hoax *
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <div class="checkbox-item">
+              <input type="checkbox" /> I agree to the terms and conditions and
+              allow my report to be published
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <div class="btn btn-secondary" onclick="location.reload()">
+              CLEAR FORM
+            </div>
+            <div class="btn" onclick="alert('Form submitted!')">
+              SUBMIT REPORT
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Submission Guidelines</div>
+        <div class="guidelines">
+          <div class="guideline">
+            <img src="pictures/icon-camera.png" class="guideline-icon" />
+            <div class="guideline-text">
+              Include photos or videos if possible - even blurry evidence helps!
+            </div>
+          </div>
+          <div class="guideline">
+            <img src="pictures/icon-clock.png" class="guideline-icon" />
+            <div class="guideline-text">
+              Submit your report within 48 hours of the sighting for best
+              results
+            </div>
+          </div>
+          <div class="guideline">
+            <img src="pictures/icon-location.png" class="guideline-icon" />
+            <div class="guideline-text">
+              Be as specific as possible about the location
+            </div>
+          </div>
+          <div class="guideline">
+            <img src="pictures/icon-note.png" class="guideline-icon" />
+            <div class="guideline-text">
+              Describe any unusual behaviors or sounds you observed
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-section">
+        <div class="footer-title">Contact Us</div>
+        <div class="footer-text">info@flarmlurv.se</div>
+        <div class="footer-text">+46 8 123 456</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-title">Follow Us</div>
+        <div class="social-links">
+          <img
+            src="pictures/facebook.png"
+            onclick="window.open('https://facebook.com')"
+          />
+          <img
+            src="pictures/tiktok.png"
+            onclick="window.open('https://tiktok.com')"
+          />
+          <img
+            src="pictures/instagram.png"
+            onclick="window.open('https://instagram.com')"
+          />
+        </div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-title">Legal</div>
+        <div class="footer-text" onclick="location.href = '#'">
+          Privacy Policy
+        </div>
+        <div class="footer-text" onclick="location.href = '#'">
+          Terms of Service
+        </div>
+      </div>
+      <div class="copyright">
+        Copyright 2026 Flarmlurv Fan Club. All rights reserved.
+        <a
+          href="https://www.flaticon.com/"
+          style="text-decoration: none"
+          title="icons"
+          >Icons created by Hight Quality Icons - Flaticon</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

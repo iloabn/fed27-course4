@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">FLARMLURV FAN PAGE</div>
+      <div class="menu">
+        <div class="menu-item" onclick="location.href = 'index.html'">Home</div>
+        <div class="menu-item" onclick="location.href = 'facts.html'">
+          Facts
+        </div>
+        <div class="menu-item" onclick="location.href = 'sightings.html'">
+          Report Sighting
+        </div>
+        <div class="menu-item" onclick="location.href = 'gallery.html'">
+          Gallery
+        </div>
+      </div>
+    </div>
+
+    <div class="page-title-banner">
+      <div class="page-title">Flarmlurv Gallery</div>
+    </div>
+
+    <div class="content">
+      <div class="section">
+        <div class="text">
+          Browse our collection of Flarmlurv sightings, artistic renditions, and
+          historical documentation. Click on any image to view it in full size.
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Filter by Category</div>
+        <div class="filter-tabs">
+          <div class="filter-tab active" onclick="filterGallery('all')">
+            All
+          </div>
+          <div class="filter-tab" onclick="filterGallery('photos')">Photos</div>
+          <div class="filter-tab" onclick="filterGallery('art')">Artwork</div>
+          <div class="filter-tab" onclick="filterGallery('historical')">
+            Historical
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="gallery/sighting-001.jpg" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Night Sighting at Djurgarden</div>
+            <div class="gallery-date">December 2025</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="gallery/sighting-002.jpg" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Waterfront Encounter</div>
+            <div class="gallery-date">November 2025</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="gallery/art-001.jpg" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Artist's Rendition by Maria S.</div>
+            <div class="gallery-date">2024</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="gallery/historical-001.jpg" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">1956 Photograph (Disputed)</div>
+            <div class="gallery-date">1956</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="gallery/sighting-003.jpg" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Security Camera Footage</div>
+            <div class="gallery-date">2015</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="gallery/art-002.jpg" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Digital Art by Johan K.</div>
+            <div class="gallery-date">2023</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="gallery/historical-002.jpg" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Sketch from 1823</div>
+            <div class="gallery-date">1823</div>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+          <img src="gallery/sighting-004.jpg" />
+          <div class="gallery-overlay">
+            <div class="gallery-title">Dawn Sighting in Gamla Stan</div>
+            <div class="gallery-date">October 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <div class="page-btn" onclick="changePage(-1)">&lt;</div>
+        <div class="page-num active">1</div>
+        <div class="page-num">2</div>
+        <div class="page-num">3</div>
+        <div class="page-num">4</div>
+        <div class="page-btn" onclick="changePage(1)">&gt;</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Submit Your Own</div>
+        <div class="text">
+          Have a photo or artwork of the Flarmlurv you'd like to share? We'd
+          love to feature it in our gallery!
+        </div>
+        <div class="btn" onclick="location.href = 'sightings.html'">
+          SUBMIT MEDIA
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Video Evidence</div>
+        <div class="video-grid">
+          <div class="video-item">
+            <div class="video-placeholder">
+              <img src="pictures/play-button.png" class="play-icon" />
+            </div>
+            <div class="video-title">
+              Security footage analysis - Gamla Stan 2015
+            </div>
+            <div class="video-duration">3:24</div>
+          </div>
+          <div class="video-item">
+            <div class="video-placeholder">
+              <img src="pictures/play-button.png" class="play-icon" />
+            </div>
+            <div class="video-title">
+              Tourist captures movement near Royal Palace
+            </div>
+            <div class="video-duration">0:47</div>
+          </div>
+          <div class="video-item">
+            <div class="video-placeholder">
+              <img src="pictures/play-button.png" class="play-icon" />
+            </div>
+            <div class="video-title">Night vision recording - Djurgarden</div>
+            <div class="video-duration">2:15</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <div class="lightbox-content">
+        <img src="" id="lightbox-img" />
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+      <div class="lightbox-close">X</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-section">
+        <div class="footer-title">Contact Us</div>
+        <div class="footer-text">info@flarmlurv.se</div>
+        <div class="footer-text">+46 8 123 456</div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-title">Follow Us</div>
+        <div class="social-links">
+          <img
+            src="pictures/facebook.png"
+            onclick="window.open('https://facebook.com')"
+          />
+          <img
+            src="pictures/tiktok.png"
+            onclick="window.open('https://tiktok.com')"
+          />
+          <img
+            src="pictures/instagram.png"
+            onclick="window.open('https://instagram.com')"
+          />
+        </div>
+      </div>
+      <div class="footer-section">
+        <div class="footer-title">Legal</div>
+        <div class="footer-text" onclick="location.href = '#'">
+          Privacy Policy
+        </div>
+        <div class="footer-text" onclick="location.href = '#'">
+          Terms of Service
+        </div>
+      </div>
+      <div class="copyright">
+        Copyright 2026 Flarmlurv Fan Club. All rights reserved.
+      </div>
+    </div>
+
+    <script>
+      function openLightbox(element) {
+        var img = element.querySelector("img").src;
+        var title = element.querySelector(".gallery-title").innerText;
+        document.getElementById("lightbox-img").src = img;
+        document.getElementById("lightbox-caption").innerText = title;
+        document.getElementById("lightbox").style.display = "flex";
+      }
+      function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+      }
+      function filterGallery(category) {
+        // Filter functionality placeholder
+      }
+      function changePage(direction) {
+        // Pagination placeholder
+      }
+    </script>
+  </body>
+</html>
