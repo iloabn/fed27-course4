@@ -17,14 +17,14 @@ const PORT = 3003;
 app.post("/api/topics", (req, res) => {
     const topics = connect();
 
-    console.log("Someone sent: " + req.body)
     const data = { title: req.body.title, vote: 0 };
+
     if (!data.title) {
         res.sendStatus(406);
     } else {
         console.log("yay!");
         topics.insertOne(data);
-        res.send(data)
+        res.json(data);
     }
 });
 
