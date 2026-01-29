@@ -2,47 +2,89 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
+console.log("Is it this code?");
+
+
 const { MongoClient, ObjectId } = require("mongodb");
 
-const Ilo = new MongoClient("mongodb://localhost:27017");
+const client = new MongoClient("mongodb://localhost:27017");
 
 const connect = () => {
-    const db = Ilo.db("topics");
+    const db = client.db("topics");
     const topicsCollection = db.collection("topics");
     return topicsCollection;
 };
 
-const PORT = 3003;
+const PORT = 3009;
 
-app.post("/api/topics", (req, res) => {
+app.post("/api/topics", async (req, res) => {
     const topics = connect();
 
-    const data = { title: req.body.title, vote: 0 };
+    const data = {
+        title: req.body.title,
+        vote: 0
+    };
 
     if (!data.title) {
         res.sendStatus(406);
+    }
+
+    const existingTopic = await topics.findOne({
+        title: data.title
+    });
+
+    if (existingTopic) {
+        res.status(302).send(
+            `This topic already exists! It has the id ${existingTopic._id}`
+        );
+    }
+
+
+    console.log("yay!");
+    topics.insertOne(data);
+    res.json(data);
+});
+
+app.get("/api/topics", async (req, res) => {
+    const topics = connect();
+
+    const foundTopic = await topics.find();
+    res.json(await foundTopic.toArray());
+});
+
+app.get("/api/topics/:id", async (req, res) => {
+    const id = req.params.id;
+    const topics = connect();
+
+    if (!ObjectId.isValid(id)) { // id = "Lego"
+        res.sendStatus(400);
     } else {
-        console.log("yay!");
-        topics.insertOne(data);
-        res.json(data);
+        const foundTopic = await topics.findOne(
+            { _id: new ObjectId(id) }
+        );
+        res.json(foundTopic);
     }
 });
 
-app.get("/api/topics", (req, res) => {
+app.get("/api/topics/leaderboard", async (req, res) => {
+    const topics = connect();
+    const topTopics = topics.aggregate([{ $sort: { vote: 1 } }]);
 
-});
-app.get("/api/topics/:id", (req, res) => {
-
+    res.json(topTopics.toArray());
 });
 
 app.post("/api/topics/:id/vote", (req, res) => {
     const id = req.params.id;
     const topics = connect();
 
-    topics.updateOne(
-        { _id: new ObjectId(id) },
-        { $inc: { vote: 1 } }
-    );
+    if (!ObjectId.isValid(id)) { // id = "Lego"
+        res.sendStatus(400);
+    } else {
+        topics.updateOne(
+            { _id: new ObjectId(id) },
+            { $inc: { vote: 1 } }
+        );
+    }
 
     res.sendStatus(202);
 });
