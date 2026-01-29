@@ -2,9 +2,6 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
-console.log("Is it this code?");
-
-
 const { MongoClient, ObjectId } = require("mongodb");
 
 const client = new MongoClient("mongodb://localhost:27017");
@@ -39,7 +36,6 @@ app.post("/api/topics", async (req, res) => {
         );
     }
 
-
     console.log("yay!");
     topics.insertOne(data);
     res.json(data);
@@ -52,6 +48,20 @@ app.get("/api/topics", async (req, res) => {
     res.json(await foundTopic.toArray());
 });
 
+app.get("/api/topics/leaderboard", async (req, res) => {
+    const topics = connect();
+    const topTopics = await topics.aggregate([{
+        $sort: { vote: -1 }
+    },
+    {
+        $limit: 3
+    }
+    ]);
+
+    res.json(await topTopics.toArray());
+});
+
+// /api/topics/leaderboard
 app.get("/api/topics/:id", async (req, res) => {
     const id = req.params.id;
     const topics = connect();
@@ -64,13 +74,6 @@ app.get("/api/topics/:id", async (req, res) => {
         );
         res.json(foundTopic);
     }
-});
-
-app.get("/api/topics/leaderboard", async (req, res) => {
-    const topics = connect();
-    const topTopics = topics.aggregate([{ $sort: { vote: 1 } }]);
-
-    res.json(topTopics.toArray());
 });
 
 app.post("/api/topics/:id/vote", (req, res) => {
